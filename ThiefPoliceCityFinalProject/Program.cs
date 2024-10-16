@@ -4,7 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //Intializing and declaring the grid
+            int gridWidth = 100; //col
+            int gridHeight = 25; //rows
+
+            //Creating object of class Grid
+            Grid grid =  new Grid(gridWidth, gridHeight);
+            
         }
     }
 }
