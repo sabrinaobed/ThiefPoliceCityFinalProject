@@ -8,8 +8,14 @@
             int gridWidth = 100; //col
             int gridHeight = 25; //rows
 
-            //Creating object of class Grid
+            //Creating an object of class Grid
             Grid grid =  new Grid(gridWidth, gridHeight);
+
+            //Creating an object of class Persons
+            List<Persons> allPersons = new List<Persons>();
+
+            //Creating an instance of Random to generate random numbers
+            Random rnd = new Random();
             
         }
     }
