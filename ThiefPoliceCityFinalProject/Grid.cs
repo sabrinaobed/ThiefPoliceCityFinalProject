@@ -34,6 +34,21 @@ namespace ThiefPoliceCityFinalProject
                     grid[row, col] = ' ';
                 }
             }
+
+            //Creating boundaries of the grid using for loop
+            for(int col = 0;col < width; col++) 
+            {
+                grid[0,col]= '*'; //upper boundary
+                grid[height - 1,col]= '*'; //lower boundary ,height - 1 refers to last row (index 24)
+            }   
+
+            for(int row = 0; row < height; row++)
+            {
+                grid[row,0] = '*'; //left boundary
+                grid[row,width - 1] = '*'; //right bundary,width - 1 refers to last col (index 99)
+
+            }
+
         }
             
 
