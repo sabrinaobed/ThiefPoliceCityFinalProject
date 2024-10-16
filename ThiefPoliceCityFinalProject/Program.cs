@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+
+            
             //Intializing and declaring the grid
             int gridWidth = 100; //col
             int gridHeight = 25; //rows
@@ -16,6 +18,9 @@
 
             //Creating an instance of Random to generate random numbers
             Random rnd = new Random();
+
+
+            //
             
         }
     }
