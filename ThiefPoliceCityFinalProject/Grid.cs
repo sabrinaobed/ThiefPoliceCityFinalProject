@@ -27,7 +27,8 @@ namespace ThiefPoliceCityFinalProject
         //Creating a method for creating and initializing the grid with empty spaces using nested for loop
        public void CreateGrid()
         {
-            for(int row = 0; row < height; row++)
+
+            for(int row = 0; row < height; row++)//grid with empty spaces
             {
                 for(int col = 0; col < width; col++)
                 {
