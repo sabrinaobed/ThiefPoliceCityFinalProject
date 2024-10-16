@@ -23,5 +23,11 @@ namespace ThiefPoliceCityFinalProject
             XCoordinate = xCoordinate;
             YCoordinate = yCoordinate;
         }
+
+        //Creating a method for Character Representation
+        public char CharacterRepresentation()
+        {
+            return PersonRepresentation; //return the PersonsRepresntation property in the method
+        }
     } 
 }
