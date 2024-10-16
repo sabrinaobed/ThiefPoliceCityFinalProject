@@ -29,5 +29,46 @@ namespace ThiefPoliceCityFinalProject
         {
             return PersonRepresentation; //return the PersonsRepresntation property in the method
         }
+
+        //Creating a method for Persons Movement in grid
+        public virtual void PersonsMovement(int width, int height,List<Persons>allPersons)
+        {
+            //creating a varaible to define the random 6 directions in which the persons will move
+            int direction = random.Next(0,6);
+            //declaring variables for types of directions
+            int xDirecion = 0; 
+            int yDirecion = 0;
+
+            switch(direction)
+            {
+                case 0:
+                    yDirecion = -1; //up
+                    break;
+                case 1:
+                    yDirecion = 1; //down
+                    break ;
+                case 2:
+                    xDirecion = -1;//left
+                    break;
+                case 3:
+                    xDirecion = 1; //right
+                    break;
+                case 4:
+                    yDirecion = -1;
+                    xDirecion += 1;//upper right
+                    break;
+                case 5:
+                    yDirecion += 1;
+                    xDirecion = -1; //lower left
+                    break;
+
+            }
+
+            //Updating the positions/current locations/coordinates of persons while keeping them within boundaries of grid
+            XCoordinate = Math.Clamp(XCoordinate + xDirecion, 1, width - 2);
+            YCoordinate = Math.Clamp(YCoordinate +  yDirecion, 1, height - 2);
+
+
+        }
     } 
 }
