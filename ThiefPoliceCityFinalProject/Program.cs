@@ -37,6 +37,7 @@
                 allPersons.Add(new Citizen(rnd.Next(1, gridWidth - 1), rnd.Next(1, gridHeight - 1)));
             }
 
+            Console.CursorVisible = false; //Hide the cursor for cleaner display
 
         }
     }
