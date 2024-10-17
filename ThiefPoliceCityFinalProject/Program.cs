@@ -54,6 +54,11 @@
                 Console.WriteLine("Welcome to Catch the Thief Game!");
                 Console.WriteLine("Recent Interaction in the city between people");
 
+                //Call move method from persons class for random movements of all persons on grid
+                foreach(Persons person in allPersons)
+                {
+                    person.PersonsMovement(gridWidth, gridHeight,allPersons);
+                }
 
             }
 
