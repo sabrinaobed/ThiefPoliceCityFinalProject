@@ -25,7 +25,7 @@ namespace ThiefPoliceCityFinalProject
         }
 
         //Creating a method for Character Representation
-        public char CharacterRepresentation()
+        public virtual char CharacterRepresentation()
         {
             return PersonRepresentation; //return the PersonsRepresntation property in the method
         }
@@ -36,39 +36,58 @@ namespace ThiefPoliceCityFinalProject
             //creating a varaible to define the random 6 directions in which the persons will move
             int direction = random.Next(0,6);
             //declaring variables for types of directions
-            int xDirecion = 0; 
-            int yDirecion = 0;
+            int xDirection = 0; 
+            int yDirection = 0;
 
             switch(direction)
             {
                 case 0:
-                    yDirecion = -1; //up
+                    yDirection = -1; //up
                     break;
                 case 1:
-                    yDirecion = 1; //down
+                    yDirection = 1; //down
                     break ;
                 case 2:
-                    xDirecion = -1;//left
+                    xDirection = -1;//left
                     break;
                 case 3:
-                    xDirecion = 1; //right
+                    xDirection = 1; //right
                     break;
                 case 4:
-                    yDirecion = -1;
-                    xDirecion += 1;//upper right
+                    yDirection = -1;
+                    xDirection += 1;//upper right
                     break;
                 case 5:
-                    yDirecion += 1;
-                    xDirecion = -1; //lower left
+                    yDirection += 1;
+                    xDirection = -1; //lower left
                     break;
 
             }
 
             //Updating the positions/current locations/coordinates of persons while keeping them within boundaries of grid
-            XCoordinate = Math.Clamp(XCoordinate + xDirecion, 1, width - 2);
-            YCoordinate = Math.Clamp(YCoordinate +  yDirecion, 1, height - 2);
+            XCoordinate = Math.Clamp(XCoordinate + xDirection, 1, width - 2);
+            YCoordinate = Math.Clamp(YCoordinate +  yDirection, 1, height - 2);
 
 
         }
     } 
+
+
+
+    //Subclasses
+    public class Police : Persons //Police
+    {
+
+    }
+
+    public class Thief : Persons //Thief
+    {
+
+    }
+
+    public class Citizen : Persons //Citizen
+    {
+
+    }
+
 }
