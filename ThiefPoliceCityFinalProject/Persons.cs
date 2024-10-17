@@ -77,17 +77,52 @@ namespace ThiefPoliceCityFinalProject
     //Subclasses
     public class Police : Persons //Police
     {
+        //Constructor
+        public Police ( int xCoordinate,int yCoordinate) : base(xCoordinate, yCoordinate)
+        {
 
+        }
+
+        //Overrid PersonRepresentation()
+        public override char CharacterRepresentation()
+        
+        {
+            return 'P';
+        }
     }
 
     public class Thief : Persons //Thief
     {
+        //constructor
+        public Thief (int xCoordinate, int yCoordinate) : base (xCoordinate, yCoordinate)
+        {
 
+        }
+
+
+        //Overrid PersonRepresentation()
+        public override char CharacterRepresentation()
+
+        {
+            return 'T';
+        }
     }
 
     public class Citizen : Persons //Citizen
     {
+        //constructor
+        public Citizen (int xCoordinate, int yCoordinate) : base(xCoordinate,yCoordinate)
+        {
 
+        }
+
+
+        //Overrid PersonRepresentation()
+        public override char CharacterRepresentation()
+
+        {
+            return 'C';
+        }
     }
 
 }
