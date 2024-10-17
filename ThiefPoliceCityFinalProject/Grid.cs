@@ -76,8 +76,41 @@ namespace ThiefPoliceCityFinalProject
         }
 
 
-        
-            
+        //Method
+        //Creating a method to DisplayGrid with all persons and their character represnattion  whith specific colors
+        public void DisplayGrid()
+        {
+            for (int row = 0; row < height; row++)
+            {
+                for (int col = 0; col < width; col++)
+                {
+                    //Decalring a variable to hold character value and intialized with the value at the current position on grid
+                    char character = grid[row, col];
+                    if (character == 'P')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    if (character == 'T')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    if (character == 'C')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.White; 
+                    }
+                    Console.Write(character);
+                }
+                Console.WriteLine();
+            }
+            Console.ResetColor(); //Reset color after drawing the grid
+
+
+
+        }    
 
         
 
