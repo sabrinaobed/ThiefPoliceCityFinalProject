@@ -20,7 +20,7 @@ namespace ThiefPoliceCityFinalProject
             this.width = width; //this.width refers to the  private field of the class and width refers to parameter width value passed to constructor
             this.height = height;
             grid = new char[width, height]; //creating a new object & represents different elements of grid like empty spaces boundaries etc
-            CreateGrid(); //calling this method here in constructor to set the intial state of gris with empty spaces as the Grid object is created.
+            CreateGrid(); //calling this method here in constructor to set the intial state of grid with empty spaces as the Grid object is created.
         }
 
         //Method
