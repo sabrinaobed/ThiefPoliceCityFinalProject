@@ -51,6 +51,32 @@ namespace ThiefPoliceCityFinalProject
             }
 
         }
+
+        //Method
+        //Update Grid with allPersons List and empty spaces
+        public void UpdateGridWithAllPersons(List<Persons> allPersons)
+        {
+            //First reset to the grid to avoid overlapping and be ensure that the previous characters are cleared and also reset grid to empty spaces
+            for(int row= 0; row < height - 1; row++)
+            {
+                for (int col = 0; col < width - 1; col++)
+                {
+                    grid[row, col] = ' ';
+                }
+            }
+
+            //updating grid with persons
+            foreach (Persons person in allPersons)
+            {
+                if(person.XCoordinate >= 1 && person.XCoordinate < width -1 && person.YCoordinate >= 1 && person.YCoordinate < height - 1 )
+                {
+                    grid[person.YCoordinate, person.XCoordinate] = person.PersonRepresentation;
+                }
+            }
+        }
+
+
+        
             
 
         
