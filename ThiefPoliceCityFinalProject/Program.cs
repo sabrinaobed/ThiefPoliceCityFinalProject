@@ -20,8 +20,24 @@
             Random rnd = new Random();
 
 
-            //
-            
+            //Creating persons ( police, theieves and citizens) on grid
+            //Police
+            for(int i = 0; i < 10; i++)
+            {
+                allPersons.Add(new Police(rnd.Next(1,gridWidth -1),rnd.Next(1, gridHeight -1)));//random int betweeb 1 and gridWidth- 1(X coordinate), random int betweeb 1 and gridheight- 1(Y coordinate), rnd is an instance whcih we created of class Random
+            }
+            //Thieves
+            for (int i = 0; i < 20; i++)
+            {
+                allPersons.Add(new Thief(rnd.Next(1, gridWidth - 1), rnd.Next(1, gridHeight - 1)));
+            }
+            //Citizen
+            for (int i = 0; i < 30; i++)
+            {
+                allPersons.Add(new Citizen(rnd.Next(1, gridWidth - 1), rnd.Next(1, gridHeight - 1)));
+            }
+
+
         }
     }
 }
