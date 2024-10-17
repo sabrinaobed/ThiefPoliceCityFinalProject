@@ -50,6 +50,11 @@
                 //Call diaply grid method to display the grid
                 grid.DisplayGrid();
 
+                //Welcome note
+                Console.WriteLine("Welcome to Catch the Thief Game!");
+                Console.WriteLine("Recent Interaction in the city between people");
+
+
             }
 
         }
