@@ -39,6 +39,19 @@
 
             Console.CursorVisible = false; //Hide the cursor for cleaner display
 
+            while(true)
+            {
+                //Call update all persons on grid method
+                grid.UpdateGridWithAllPersons(allPersons);
+
+                //Clear the console after each update
+                Console.Clear();
+
+                //Call diaply grid method to display the grid
+                grid.DisplayGrid();
+
+            }
+
         }
     }
 }
