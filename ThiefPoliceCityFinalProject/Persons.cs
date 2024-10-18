@@ -117,6 +117,11 @@ namespace ThiefPoliceCityFinalProject
         //constructor
         public Citizen (int xCoordinate, int yCoordinate) : base(xCoordinate,yCoordinate)
         {
+            //unique proprties of subclass citizen
+            Inventory.Add("Mobile");
+            Inventory.Add("Keys");
+            Inventory.Add("Money");
+            Inventory.Add("Watch");
 
         }
 
