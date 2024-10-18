@@ -80,12 +80,10 @@ namespace ThiefPoliceCityFinalProject
     class Police : Persons //Police
     {
         //Constructor
-        public Police ( int xCoordinate,int yCoordinate) : base(xCoordinate, yCoordinate)
-        {
+        public Police ( int xCoordinate,int yCoordinate) : base(xCoordinate, yCoordinate) { }
+            
 
-        }
-
-        //Overrid PersonRepresentation()
+        //Override PersonRepresentation()
         public override char CharacterRepresentation()
         
         {
@@ -95,8 +93,17 @@ namespace ThiefPoliceCityFinalProject
 
     class Thief : Persons //Thief
     {
+        //Unique property of class Thief
+        public List<string> StolenItems {  get; set; } 
+
         //constructor
-        public Thief (int xCoordinate, int yCoordinate) : base (xCoordinate, yCoordinate) { }
+        public Thief (int xCoordinate, int yCoordinate) : base (xCoordinate, yCoordinate) 
+        {
+         //Initialized the unique property as empty at the start of the game
+         StolenItems = new List<string>();
+         
+        
+        }
 
 
         //Override PersonRepresentation()
@@ -117,7 +124,7 @@ namespace ThiefPoliceCityFinalProject
         //constructor
         public Citizen (int xCoordinate, int yCoordinate) : base(xCoordinate,yCoordinate)
         {
-            //unique proprties of subclass citizen
+            //inherited property of base class which is already initlaized as empty in base class
             Inventory.Add("Mobile");
             Inventory.Add("Keys");
             Inventory.Add("Money");
