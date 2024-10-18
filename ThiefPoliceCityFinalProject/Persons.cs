@@ -12,6 +12,8 @@ namespace ThiefPoliceCityFinalProject
         //Properties
         public int XCoordinate{ get; set; } //col
         public int YCoordinate { get; set; } //row
+
+        public List<string> Inventory {  get; set; } //list of items
         public virtual char PersonRepresentation { get; } //characters for all persons,its virtual so the subclasses can override it.
 
         //Field and object of class Random
@@ -36,8 +38,7 @@ namespace ThiefPoliceCityFinalProject
             //creating a varaible to define the random 6 directions in which the persons will move
             int direction = random.Next(0,6);
             //declaring variables for types of directions
-            int xDirection = 0; 
-            int yDirection = 0;
+            int xDirection = 0 , yDirection = 0;
 
             switch(direction)
             {
@@ -75,7 +76,7 @@ namespace ThiefPoliceCityFinalProject
 
 
     //Subclasses
-    public class Police : Persons //Police
+    class Police : Persons //Police
     {
         //Constructor
         public Police ( int xCoordinate,int yCoordinate) : base(xCoordinate, yCoordinate)
@@ -91,24 +92,26 @@ namespace ThiefPoliceCityFinalProject
         }
     }
 
-    public class Thief : Persons //Thief
+    class Thief : Persons //Thief
     {
         //constructor
-        public Thief (int xCoordinate, int yCoordinate) : base (xCoordinate, yCoordinate)
-        {
-
-        }
+        public Thief (int xCoordinate, int yCoordinate) : base (xCoordinate, yCoordinate) { }
 
 
-        //Overrid PersonRepresentation()
+        //Override PersonRepresentation()
         public override char CharacterRepresentation()
-
         {
             return 'T';
         }
+
+
+
+
+
+
     }
 
-    public class Citizen : Persons //Citizen
+     class Citizen : Persons //Citizen
     {
         //constructor
         public Citizen (int xCoordinate, int yCoordinate) : base(xCoordinate,yCoordinate)
