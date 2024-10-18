@@ -24,6 +24,7 @@ namespace ThiefPoliceCityFinalProject
         {
             XCoordinate = xCoordinate;
             YCoordinate = yCoordinate;
+            Inventory = new List<string>();//Intialized list of items as empty
         }
 
         //Creating a method for Character Representation
