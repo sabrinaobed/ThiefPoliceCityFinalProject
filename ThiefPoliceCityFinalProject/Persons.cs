@@ -111,7 +111,7 @@ namespace ThiefPoliceCityFinalProject
             
             if(otherPerson is Thief thief && thief.StolenItems.Count > 0)
             {
-                lastInteractionMessage = $"Police met Thief and confiscated stolen items: {string.Join(", ", StolenItems)}";
+                lastInteractionMessage = $"Police met Thief and confiscated stolen items: {string.Join(", ",thief.StolenItems)}";
                 thief.StolenItems.Clear();
             }
             else if ( otherPerson is Citizen)
