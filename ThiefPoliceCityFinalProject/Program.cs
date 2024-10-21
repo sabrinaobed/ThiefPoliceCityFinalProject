@@ -51,8 +51,8 @@
                 grid.DisplayGrid();
 
                 //Welcome note
-                Console.WriteLine("Welcome to Police and Thief Game! Lets Begin The Game.");
-                //Console.WriteLine("Lets Begin the Game!");
+                Console.WriteLine("Welcome to Police and Thief Game!");
+                Console.WriteLine("---Lets Begin the Game---");
                 Console.WriteLine("Recent interactions between people in the city: ");
                
 
