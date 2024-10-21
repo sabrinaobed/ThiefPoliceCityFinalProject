@@ -34,7 +34,7 @@ namespace ThiefPoliceCityFinalProject
         }
 
         //Creating a method for Persons Movement in grid
-        public virtual void PersonsMovement(int width, int height,List<Persons>allPersons)
+        public virtual void PersonsMovement(int width, int height,List<Persons>allPersons,ref string lastInteractionMessage)
         {
             //creating a varaible to define the random 6 directions in which the persons will move
             int direction = random.Next(0,6);
@@ -70,7 +70,15 @@ namespace ThiefPoliceCityFinalProject
             XCoordinate = Math.Clamp(XCoordinate + xDirection, 1, width - 2);
             YCoordinate = Math.Clamp(YCoordinate +  yDirection, 1, height - 2);
 
-
+            //Checking the interacting between persons at same position
+            foreach(Persons persons in allPersons)
+            {
+                if(persons != this && persons.XCoordinate == XCoordinate && persons.YCoordinate == YCoordinate)
+                {
+                    //Call the interaction method in Move methid to handle the interactions
+                    Interaction(persons, ref lastInteractionMessage);
+                }
+            }
         }
 
         //Creating Interaction method for interaction of one person to other
