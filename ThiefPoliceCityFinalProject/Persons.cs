@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ThiefPoliceCityFinalProject;
 
 namespace ThiefPoliceCityFinalProject
 {
@@ -103,6 +104,13 @@ namespace ThiefPoliceCityFinalProject
         {
             return 'P';
         }
+
+        //Override Interaction method
+        public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
+        {
+            
+
+        }
     }
 
     class Thief : Persons //Thief
@@ -119,19 +127,25 @@ namespace ThiefPoliceCityFinalProject
         
         }
 
-
+       
         //Override PersonRepresentation()
         public override char CharacterRepresentation()
         {
             return 'T';
         }
 
+        //Override Interaction method
+        public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
+        {
 
 
-
-
-
+        }
     }
+
+
+
+
+}
 
      class Citizen : Persons //Citizen
     {
@@ -153,6 +167,13 @@ namespace ThiefPoliceCityFinalProject
         {
             return 'C';
         }
-    }
+    //Override Interaction method
+     public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
+     {
 
+
+     }
 }
+    
+
+
