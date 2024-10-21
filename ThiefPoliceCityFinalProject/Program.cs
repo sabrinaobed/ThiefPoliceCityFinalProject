@@ -1,10 +1,9 @@
-﻿namespace ThiefPoliceCityFinalProject
-{
+﻿using ThiefPoliceCityFinalProject;
+
     internal class Program
     {
         static void Main(string[] args)
         {
-
             
             //Intializing and declaring the grid
             int gridWidth = 100; //col
@@ -25,7 +24,7 @@
             //Police
             for(int i = 0; i < 10; i++)
             {
-                allPersons.Add(new Police(rnd.Next(1,gridWidth -1),rnd.Next(1, gridHeight -1)));//random int between 1 and gridWidth- 1(X coordinate), random int betweeb 1 and gridheight- 1(Y coordinate), rnd is an instance whcih we created of class Random
+                allPersons.Add(new Police(rnd.Next(1, gridWidth -1), rnd.Next(1, gridHeight -1)));//random int between 1 and gridWidth- 1(X coordinate), random int betweeb 1 and gridheight- 1(Y coordinate), rnd is an instance whcih we created of class Random
             }
             //Thieves
             for (int i = 0; i < 20; i++)
@@ -40,8 +39,8 @@
 
             Console.CursorVisible = false; //Hide the cursor for cleaner display
 
-            while(true)
-            {
+        while (true)
+         {
                 //Call update all persons on grid method
                 grid.UpdateGridWithAllPersons(allPersons);
 
@@ -52,12 +51,13 @@
                 grid.DisplayGrid();
 
                 //Welcome note
-                Console.WriteLine("Welcome to Police and Thief Game!");
-                Console.WriteLine("-- Game Begins --");
-                Console.WriteLine("Recent Interaction in the city between people: \n");
+                Console.WriteLine("Welcome to Police and Thief Game! Lets Begin The Game.");
+                //Console.WriteLine("Lets Begin the Game!");
+                Console.WriteLine("Recent interactions between people in the city: ");
+               
 
-                //Display the last Interaction message
-                if(!string.IsNullOrEmpty(lastInteractionMessage))
+            //Display the last Interaction message
+            if (!string.IsNullOrEmpty(lastInteractionMessage))
                 {
                     Console.WriteLine(lastInteractionMessage);
                 }
@@ -73,10 +73,10 @@
                 }
 
                 //Sleep for 1000 milliseconds to slow down the refrsh rate
-                Thread.Sleep(1000);
-
-            }
+                Thread.Sleep(1500);
 
         }
+
     }
 }
+

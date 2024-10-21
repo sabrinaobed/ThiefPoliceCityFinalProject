@@ -21,11 +21,13 @@ namespace ThiefPoliceCityFinalProject
             this.height = height;
             grid = new char[height, width]; //creating a new object & represents different elements of grid like empty spaces boundaries etc
             CreateGrid(); //calling this method here in constructor to set the intial state of grid with empty spaces as the Grid object is created.
+
         }
 
         //Method
         //Creating a method for creating and initializing the grid with empty spaces using nested for loop
        public void CreateGrid()
+            
         {
 
             for(int row = 0; row < height; row++)//grid with empty spaces
@@ -37,9 +39,9 @@ namespace ThiefPoliceCityFinalProject
             }
 
             //Creating boundaries of the grid using for loop
-            for(int col = 0;col < width; col++) 
+            for(int col = 0; col < width; col++) 
             {
-                grid[0, col]= '*'; //upper boundary
+                grid[0, col] = '*'; //upper boundary
                 grid[height - 1, col]= '*'; //lower boundary ,height - 1 refers to last row (index 24)
             }   
 
@@ -50,7 +52,7 @@ namespace ThiefPoliceCityFinalProject
 
             }
 
-        }
+        } 
 
         //Method
         //Update Grid with allPersons List and empty spaces
@@ -68,7 +70,7 @@ namespace ThiefPoliceCityFinalProject
             //updating grid with persons
             foreach (Persons person in allPersons)
             {
-                if(person.XCoordinate >= 1 && person.XCoordinate < width -1 && person.YCoordinate >= 1 && person.YCoordinate < height - 1 )
+                if(person.XCoordinate >= 1 && person.XCoordinate < width - 1 && person.YCoordinate >= 1 && person.YCoordinate < height - 1)
                 {
                     grid[person.YCoordinate, person.XCoordinate] = person.PersonRepresentation;
                 }
@@ -80,6 +82,7 @@ namespace ThiefPoliceCityFinalProject
         //Creating a method to DisplayGrid with all persons and their character represnattion  whith specific colors
         public void DisplayGrid()
         {
+            Console.Clear();
             for (int row = 0; row < height; row++)
             {
                 for (int col = 0; col < width; col++)

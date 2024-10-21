@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ThiefPoliceCityFinalProject;
-
-namespace ThiefPoliceCityFinalProject
-{
+﻿
     internal class Persons
     {
 
@@ -44,26 +36,12 @@ namespace ThiefPoliceCityFinalProject
 
             switch(direction)
             {
-                case 0:
-                    yDirection = -1; //up
-                    break;
-                case 1:
-                    yDirection = 1; //down
-                    break ;
-                case 2:
-                    xDirection = -1;//left
-                    break;
-                case 3:
-                    xDirection = 1; //right
-                    break;
-                case 4:
-                    yDirection = -1;
-                    xDirection += 1;//upper right
-                    break;
-                case 5:
-                    yDirection += 1;
-                    xDirection = -1; //lower left
-                    break;
+            case 0: yDirection = -1; break; // Up
+            case 1: yDirection = 1; break;  // Down
+            case 2: xDirection = 1; break;  // Right
+            case 3: xDirection = -1; break; // Left
+            case 4: xDirection = 1; yDirection = -1; break; // Up-right
+            case 5: xDirection = -1; yDirection = 1; break; // Down-left
 
             }
 
@@ -95,7 +73,7 @@ namespace ThiefPoliceCityFinalProject
     class Police : Persons //Police
     {
         //Constructor
-        public Police ( int xCoordinate,int yCoordinate) : base(xCoordinate, yCoordinate) { }
+        public Police (int xCoordinate, int yCoordinate) : base(xCoordinate, yCoordinate) { }
 
 
         //Override PersonRepresentation()
@@ -107,9 +85,9 @@ namespace ThiefPoliceCityFinalProject
         public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
         {
             
-            if(otherPerson is Thief thief && thief.StolenItems.Count > 0)
+            if (otherPerson is Thief thief && thief.StolenItems.Count > 0)
             {
-                lastInteractionMessage = $"Police met Thief and confiscated stolen items: + {string.Join(", ",thief.StolenItems)} ";
+                lastInteractionMessage = $"Police caught Thief and confiscated stolen items: {string.Join(", ",thief.StolenItems)} ";
                 thief.StolenItems.Clear();
             }
             else if ( otherPerson is Citizen)
@@ -140,7 +118,7 @@ namespace ThiefPoliceCityFinalProject
         //Override Interaction method
         public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
         {
-            if(otherPerson is Citizen citizen && citizen.Inventory.Count > 0)
+            if (otherPerson is Citizen citizen && citizen.Inventory.Count > 0)
             {
                 //creating a variable itemIndex and intialized to random
                 int itemIndex = random.Next(citizen.Inventory.Count);
@@ -153,9 +131,9 @@ namespace ThiefPoliceCityFinalProject
                 lastInteractionMessage = $"Thief met Citizen";
                 lastInteractionMessage = $"Thief stole {stolenItem} from a citizen.";
             }
-            else if(otherPerson is Police)
+            else if (otherPerson is Police)
             {
-                if(StolenItems.Count > 0)
+                if (StolenItems.Count > 0)
                 {
                     lastInteractionMessage = $"Police met Thief and confiscated stolen items: {string.Join(", ", StolenItems)}";
                     StolenItems.Clear();
@@ -170,7 +148,7 @@ namespace ThiefPoliceCityFinalProject
 
 
 
-}
+
 
      class Citizen : Persons //Citizen
     {
@@ -190,13 +168,13 @@ namespace ThiefPoliceCityFinalProject
     public override char PersonRepresentation => 'C';
     //Override Interaction method
     public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
-     {
+    {
         if(otherPerson is Thief || otherPerson is Police)
         {
             //this is handled in Police and Thief sub class already
         }
 
-     }
+    }
 }
     
 
