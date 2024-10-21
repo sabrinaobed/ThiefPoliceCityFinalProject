@@ -109,7 +109,15 @@ namespace ThiefPoliceCityFinalProject
         public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
         {
             
-
+            if(otherPerson is Thief thief && thief.StolenItems.Count > 0)
+            {
+                lastInteractionMessage = $"Police met Thief and confiscated stolen items: {string.Join(", ", StolenItems)}";
+                thief.StolenItems.Clear();
+            }
+            else if ( otherPerson is Citizen)
+            {
+                lastInteractionMessage = $"Police met Citzien.No action taken"; 
+            }
         }
     }
 
@@ -137,7 +145,29 @@ namespace ThiefPoliceCityFinalProject
         //Override Interaction method
         public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
         {
-
+            if(otherPerson is Citizen citizen && citizen.Inventory.Count > 0)
+            {
+                //creating a variable itemIndex and intialized to random
+                int itemIndex = random.Next(citizen.Inventory.Count);
+                string stolenItem = citizen.Inventory[itemIndex];
+                //Remove an item from citizen inventory according to index of item 
+                citizen.Inventory.RemoveAt(itemIndex);
+                //Add that item to stolen items
+                StolenItems.Add(stolenItem);
+                //Print the last interaction on console
+                lastInteractionMessage = $"Thief met Citizen";
+                lastInteractionMessage = $"Thief stole {stolenItem} from a citizen.";
+            }
+            else if(otherPerson is Police)
+            {
+                if(StolenItems.Count > 0)
+                {
+                    lastInteractionMessage = $"Police met Thief and confiscated stolen items: {string.Join(", ", StolenItems)}";
+                    StolenItems.Clear();
+                }
+            }
+            
+       
 
         }
     }
@@ -170,7 +200,10 @@ namespace ThiefPoliceCityFinalProject
     //Override Interaction method
      public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
      {
-
+        if(otherPerson is Thief || otherPerson is Police)
+        {
+            //this is handled in Police and Thief sub class already
+        }
 
      }
 }
