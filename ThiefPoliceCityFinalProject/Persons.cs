@@ -72,6 +72,12 @@ namespace ThiefPoliceCityFinalProject
 
 
         }
+
+        //Creating Interaction method for interaction of one person to other
+        public virtual void Interaction(Persons otherPerson, ref string lastInteractionMessage)
+        {
+
+        }
     } 
 
 
