@@ -18,6 +18,7 @@
 
             //Creating an instance of Random to generate random numbers
             Random rnd = new Random();
+            string lastInteractionMessage = string.Empty;// to show last interaction
 
 
             //Creating persons ( police, theieves and citizens) on grid
@@ -54,11 +55,24 @@
                 Console.WriteLine("Welcome to Catch the Thief Game!");
                 Console.WriteLine("Recent Interaction in the city between people");
 
+                //Display the last Interaction message
+                if(!string.IsNullOrEmpty(lastInteractionMessage))
+                {
+                    Console.WriteLine(lastInteractionMessage);
+                }
+                else
+                {
+                    Console.WriteLine("No major recent interactions.");
+                }
+
                 //Call move method from persons class for random movements of all persons on grid
                 foreach(Persons person in allPersons)
                 {
-                    person.PersonsMovement(gridWidth, gridHeight,allPersons);
+                    person.PersonsMovement(gridWidth, gridHeight,allPersons,ref lastInteractionMessage);
                 }
+
+                //Sleep for 2000milliseconds to slow down the refrsh rate
+                Thread.Sleep(2000);
 
             }
 
