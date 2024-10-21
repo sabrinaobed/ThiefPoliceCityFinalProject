@@ -52,8 +52,9 @@
                 grid.DisplayGrid();
 
                 //Welcome note
-                Console.WriteLine("Welcome to Catch the Thief Game!");
-                Console.WriteLine("Recent Interaction in the city between people");
+                Console.WriteLine("Welcome to Police and Thief Game!");
+                Console.WriteLine("-- Game Begins --");
+                Console.WriteLine("Recent Interaction in the city between people: \n");
 
                 //Display the last Interaction message
                 if(!string.IsNullOrEmpty(lastInteractionMessage))
@@ -71,8 +72,8 @@
                     person.PersonsMovement(gridWidth, gridHeight,allPersons,ref lastInteractionMessage);
                 }
 
-                //Sleep for 2000milliseconds to slow down the refrsh rate
-                Thread.Sleep(2000);
+                //Sleep for 1000 milliseconds to slow down the refrsh rate
+                Thread.Sleep(1000);
 
             }
 

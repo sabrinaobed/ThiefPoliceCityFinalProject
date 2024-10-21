@@ -39,14 +39,14 @@ namespace ThiefPoliceCityFinalProject
             //Creating boundaries of the grid using for loop
             for(int col = 0;col < width; col++) 
             {
-                grid[0,col]= '*'; //upper boundary
-                grid[height - 1,col]= '*'; //lower boundary ,height - 1 refers to last row (index 24)
+                grid[0, col]= '*'; //upper boundary
+                grid[height - 1, col]= '*'; //lower boundary ,height - 1 refers to last row (index 24)
             }   
 
             for(int row = 0; row < height; row++)
             {
-                grid[row,0] = '*'; //left boundary
-                grid[row,width - 1] = '*'; //right bundary,width - 1 refers to last col (index 99)
+                grid[row, 0] = '*'; //left boundary
+                grid[row, width - 1] = '*'; //right boundary,width - 1 refers to last col (index 99)
 
             }
 
@@ -57,9 +57,9 @@ namespace ThiefPoliceCityFinalProject
         public void UpdateGridWithAllPersons(List<Persons> allPersons)
         {
             //First reset to the grid to avoid overlapping and be ensure that the previous characters are cleared and also reset grid to empty spaces
-            for(int row= 0; row < height - 1; row++)
+            for(int row = 1; row < height - 1; row++)
             {
-                for (int col = 0; col < width - 1; col++)
+                for (int col = 1; col < width - 1; col++)
                 {
                     grid[row, col] = ' ';
                 }
@@ -68,8 +68,7 @@ namespace ThiefPoliceCityFinalProject
             //updating grid with persons
             foreach (Persons person in allPersons)
             {
-                if(person.XCoordinate >= 1 && person.XCoordinate < width -1 &&
-                   person.YCoordinate >= 1 && person.YCoordinate < height - 1 )
+                if(person.XCoordinate >= 1 && person.XCoordinate < width -1 && person.YCoordinate >= 1 && person.YCoordinate < height - 1 )
                 {
                     grid[person.YCoordinate, person.XCoordinate] = person.PersonRepresentation;
                 }
@@ -91,11 +90,11 @@ namespace ThiefPoliceCityFinalProject
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                     }
-                    if (character == 'T')
+                    else if (character == 'T')
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
-                    if (character == 'C')
+                    else if (character == 'C')
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
                     }

@@ -72,12 +72,12 @@ namespace ThiefPoliceCityFinalProject
             YCoordinate = Math.Clamp(YCoordinate +  yDirection, 1, height - 2);
 
             //Checking the interacting between persons at same position
-            foreach(Persons persons in allPersons)
+            foreach(Persons otherPerson in allPersons)
             {
-                if(persons != this && persons.XCoordinate == XCoordinate && persons.YCoordinate == YCoordinate)
+                if(otherPerson != this && otherPerson.XCoordinate == XCoordinate && otherPerson.YCoordinate == YCoordinate)
                 {
                     //Call the interaction method in Move methid to handle the interactions
-                    Interaction(persons, ref lastInteractionMessage);
+                    Interaction(otherPerson, ref lastInteractionMessage);
                 }
             }
         }
@@ -96,14 +96,12 @@ namespace ThiefPoliceCityFinalProject
     {
         //Constructor
         public Police ( int xCoordinate,int yCoordinate) : base(xCoordinate, yCoordinate) { }
-            
+
 
         //Override PersonRepresentation()
-        public override char CharacterRepresentation()
-        
-        {
-            return 'P';
-        }
+        public override char PersonRepresentation => 'P';
+
+
 
         //Override Interaction method
         public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
@@ -111,7 +109,7 @@ namespace ThiefPoliceCityFinalProject
             
             if(otherPerson is Thief thief && thief.StolenItems.Count > 0)
             {
-                lastInteractionMessage = $"Police met Thief and confiscated stolen items: {string.Join(", ",thief.StolenItems)}";
+                lastInteractionMessage = $"Police met Thief and confiscated stolen items: + {string.Join(", ",thief.StolenItems)} ";
                 thief.StolenItems.Clear();
             }
             else if ( otherPerson is Citizen)
@@ -135,12 +133,9 @@ namespace ThiefPoliceCityFinalProject
         
         }
 
-       
+
         //Override PersonRepresentation()
-        public override char CharacterRepresentation()
-        {
-            return 'T';
-        }
+        public override char PersonRepresentation => 'T';
 
         //Override Interaction method
         public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
@@ -183,22 +178,18 @@ namespace ThiefPoliceCityFinalProject
         public Citizen (int xCoordinate, int yCoordinate) : base(xCoordinate,yCoordinate)
         {
             //inherited property of base class which is already initlaized as empty in base class
-            Inventory.Add("Mobile");
-            Inventory.Add("Keys");
-            Inventory.Add("Money");
-            Inventory.Add("Watch");
+            Inventory.Add("MOBILE");
+            Inventory.Add("KEYS");
+            Inventory.Add("MONEY");
+            Inventory.Add("WATCH");
 
         }
 
 
-        //Overrid PersonRepresentation()
-        public override char CharacterRepresentation()
-
-        {
-            return 'C';
-        }
+    //Overrid PersonRepresentation()
+    public override char PersonRepresentation => 'C';
     //Override Interaction method
-     public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
+    public override void Interaction(Persons otherPerson, ref string lastInteractionMessage)
      {
         if(otherPerson is Thief || otherPerson is Police)
         {
