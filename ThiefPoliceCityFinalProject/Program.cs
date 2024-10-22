@@ -72,7 +72,7 @@
                     person.PersonsMovement(gridWidth, gridHeight,allPersons,ref lastInteractionMessage);
                 }
 
-                //Sleep for 1000 milliseconds to slow down the refrsh rate
+                //Sleep for 1500 milliseconds to slow down the refrsh rate
                 Thread.Sleep(1500);
 
         }
